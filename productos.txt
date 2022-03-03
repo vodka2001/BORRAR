@@ -1,0 +1,17 @@
+[
+{
+‘titulo”: ‘CACHAFAZ MAICENA”,
+“precio”: 120,
+“id”: 1
+},
+{
+‘titulo”: ‘CACHAFAZ CHOCOLATE”,
+“precio”: 150,
+“id”: 2
+},
+{
+‘titulo”: ‘COCA ORIGINAL LATA”,
+“precio”: 100,
+“id”: 3
+}
+]
