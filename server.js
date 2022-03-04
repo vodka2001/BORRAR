@@ -8,6 +8,20 @@ const server = app.listen(PORT, () => { console.log(`SERVER ESCUCHANDO EN ${serv
 
 const fs= require("fs");
 
+const cont = new Contenedor("./productos.txt");
+
+app.get("/productos", (req, res) => {
+    res.send(cont.getAll());
+});
+
+app.get("/", (req,res) => { 
+  res.send(`Direcciones en subdirectorios`);
+});
+
+app.get("/productoRandom", (req, res) => {
+    res.send(cont.getRandom());
+})
+
 class Contenedor {
     constructor(archivo) { this.archivo = archivo;
     }
@@ -27,17 +41,8 @@ class Contenedor {
 
                 return archivoCompleto[random]; 
             } catch (error) { console.log(' "Error " + error');
+        }
     }
 }
-app.get('/', (req, res) => { res.send( `Direcciones /productos se ven todos, o /productoRandom se ve solo uno aleatorio`);}
-}
 
-const cont = new Contenedor("./productos.txt");
 
-app.get("/productos", (req, res) => {
-    res.send(cont.getAll());
-});
-
-app.get("/productoRandom", (req, res) => {
-    res.send(cont.getRandom());
-});
